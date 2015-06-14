@@ -240,6 +240,11 @@ public class Ejb3Column {
 			this.mappingColumn.setNullable( nullable );
 			this.mappingColumn.setSqlType( sqlType );
 			this.mappingColumn.setUnique( unique );
+			// columnDefinition can also be specified using @JoinColumn, hence we have to check
+            // whether it is set or not
+            if ( StringHelper.isEmpty( sqlType ) ) {
+                this.sqlType = sqlType;
+            }
 
 			if(writeExpression != null && !writeExpression.matches("[^?]*\\?[^?]*")) {
 				throw new AnnotationException(

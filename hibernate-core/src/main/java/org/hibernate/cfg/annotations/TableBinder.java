@@ -582,7 +582,6 @@ public class TableBinder {
 			}
 			while ( mappedByColumns.hasNext() ) {
 				Column column = (Column) mappedByColumns.next();
-				columns[0].overrideFromReferencedColumnIfNecessary( column );
 				columns[0].linkValueUsingAColumnCopy( column, value );
 			}
 		}
@@ -600,7 +599,6 @@ public class TableBinder {
 			}
 			while ( idColumns.hasNext() ) {
 				Column column = (Column) idColumns.next();
-				columns[0].overrideFromReferencedColumnIfNecessary( column );
 				columns[0].linkValueUsingDefaultColumnNaming( column, referencedEntity, value );
 			}
 		}
